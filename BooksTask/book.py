@@ -1,5 +1,7 @@
 class Book:
 
+
+
     def __init__(self, title, author, publication_year, genre):
         """
         Initialize a Book object with title, author, publication year, and genre.
@@ -47,3 +49,5 @@ class Book:
             "publication_year": self.publication_year,
             "genre": self.genre
         }
+
+

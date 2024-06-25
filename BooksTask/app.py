@@ -18,7 +18,7 @@ class App:
         Setup Flask routes for the application.
         """
         self.app.add_url_rule('/', view_func=self.index)
-        self.app.add_url_rule('/books', view_func=self.books, methods=['GET', 'POST'])
+        self.app.add_url_rule('/books', view_func=self.add_books, methods=['GET', 'POST'])
         self.app.add_url_rule('/edit/<title>', view_func=self.edit_book, methods=['GET', 'POST'])
         self.app.add_url_rule('/delete/<title>', view_func=self.delete_book)
         self.app.add_url_rule('/search', view_func=self.search_books, methods=['GET'])
@@ -33,7 +33,7 @@ class App:
         """
         return render_template('index.html')
 
-    def books(self):
+    def add_books(self):
         """
         Handle GET (list books) and POST (add book) requests for the books page.
 
@@ -44,7 +44,7 @@ class App:
             try:
                 data = request.form
                 title = data['title'].strip()  # Remove leading/trailing whitespace
-                author = data['author'].strip()
+                author = data['author'].strip()  # By the name of the input. name="author"
                 year = int(data['year'].strip())
                 genre = data['genre'].strip()
 
@@ -61,8 +61,7 @@ class App:
             except Exception as e:
                 flash(f'Error occurred: {str(e)}', 'error')
 
-        books = self.library.list_books()
-        return render_template('books.html', books=books)
+        return render_template('books.html', books=self.library.list_books())
 
     def edit_book(self, title):
         """
@@ -87,18 +86,15 @@ class App:
                 year = int(data.get('year').strip())
                 genre = data.get('genre').strip()
 
-                if not new_title or not author or not year or not genre:
-                    flash('All fields are required.', 'error')
-                else:
-                    new_details = {
-                        "title": new_title,
-                        "author": author,
-                        "publication_year": year,
-                        "genre": genre
-                    }
-                    self.library.edit_book(title, new_details)
-                    flash('Book updated successfully!', 'success')
-                    return redirect(url_for('books'))
+                new_details = {
+                    "title": new_title,
+                    "author": author,
+                    "publication_year": year,
+                    "genre": genre
+                }
+                self.library.edit_book(title, new_details)
+                flash('Book updated successfully!', 'success')
+                return redirect(url_for('books'))
 
             except ValueError:
                 flash('Invalid input for year.', 'error')

@@ -50,3 +50,38 @@ class TestBookFunctionality(unittest.TestCase):
         self.assertNotEqual(None, book1.author, "Author should not be None")
         self.assertNotEqual(None, book1.publication_year, "Publication year should not be None")
         self.assertNotEqual(None, book1.genre, "Genre should not be None")
+
+    def test_to_dict_function_equal(self):
+        # Arrange
+        book = Book("Harry", "M7mod", 2001, "Magic")
+
+        expected_dict = {
+            "title": "Harry",
+            "author": "M7mod",
+            "publication_year": 2001,
+            "genre": "Magic"
+        }
+
+        # Act
+        actual_dict = book.to_dict()
+
+        # Assert
+        self.assertEqual(expected_dict, actual_dict)
+
+    def test_to_dict_function_not_equal(self):
+        # Arrange
+        book = Book("Harry", "M7mod", 2001, "Magic")
+
+        expected_dict = {
+            "title": "Potter",
+            "author": "Shibel",
+            "publication_year": 2002,
+            "genre": "Fantasy"
+        }
+
+        # Act
+        actual_dict = book.to_dict()
+
+        # Assert
+        self.assertNotEqual(expected_dict, actual_dict,
+                            "The expected_dict representation of the book should not match the actual_dict")

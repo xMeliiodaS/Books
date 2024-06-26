@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="df2f7189-1b68-4a02-afed-0c9a2612c316" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library.json" beforeDir="false" afterPath="$PROJECT_DIR$/library.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test_library_functionality.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_library_functionality.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -49,7 +48,7 @@
       <recent name="D:\Users\User\Desktop\Python-QA\Python-QA\BooksTask\static" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.Python tests for test_library_functionality.TestLibraryFunctionality.test_search_books_function">
+  <component name="RunManager" selected="Python tests.Python tests for test_library_functionality.TestLibraryFunctionality.test_save_library_function">
     <configuration name="Python tests for test_library_functionality.TestLibraryFunctionality.test_add_book_function_not_in" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="BooksTask" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -92,7 +91,7 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests for test_library_functionality.TestLibraryFunctionality.test_list_books" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests for test_library_functionality.TestLibraryFunctionality.test_save_library_function" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="BooksTask" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -102,7 +101,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_library_functionality.TestLibraryFunctionality.test_list_books&quot;" />
+      <option name="_new_target" value="&quot;test_library_functionality.TestLibraryFunctionality.test_save_library_function&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
@@ -122,11 +121,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.Python tests for test_library_functionality.TestLibraryFunctionality.test_save_library_function" />
+        <item itemvalue="Python tests.Python tests for test_library_functionality.TestLibraryFunctionality.test_edit_book_true" />
         <item itemvalue="Python tests.Python tests for test_library_functionality.TestLibraryFunctionality.test_search_books_function" />
         <item itemvalue="Python tests.Python tests for test_library_functionality.TestLibraryFunctionality.test_edit_book_false" />
-        <item itemvalue="Python tests.Python tests for test_library_functionality.TestLibraryFunctionality.test_edit_book_true" />
         <item itemvalue="Python tests.Python tests for test_library_functionality.TestLibraryFunctionality.test_add_book_function_not_in" />
-        <item itemvalue="Python tests.Python tests for test_library_functionality.TestLibraryFunctionality.test_list_books" />
       </list>
     </recent_temporary>
   </component>

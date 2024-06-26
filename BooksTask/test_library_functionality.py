@@ -1,6 +1,7 @@
+import json
+import os
+import tempfile
 import unittest
-
-from flask import request
 
 from book import Book
 from library import Library
@@ -120,3 +121,30 @@ class TestLibraryFunctionality(unittest.TestCase):
 
         # Assert
         self.assertEqual(expected_search_list_books, actual_search_list_books)
+
+    def test_save_library_function(self):
+        # Arrange
+        book1 = Book("Harry Potter and the Sorcerer's Stone", "J.K. Rowling", 1997, "Fantasy")
+        book2 = Book("The Hobbit", "J.R.R. Tolkien", 1937, "Fantasy")
+        library = Library()
+        library.add_book(book1)
+        library.add_book(book2)
+
+        # Create a temporary file
+        temp_file = tempfile.NamedTemporaryFile(delete=False)
+        temp_filename = temp_file.name
+        temp_file.close()
+
+        library.filename = temp_filename  # Use the temporary file for saving
+
+        # Act
+        library.save_library()
+
+        # Assert
+        with open(temp_filename, 'r') as file:
+            data = json.load(file)
+            expected_data = [book1.to_dict(), book2.to_dict()]
+            self.assertEqual(data, expected_data, "The saved library data does not match the expected data")
+
+        # Clean up
+        os.remove(temp_filename)

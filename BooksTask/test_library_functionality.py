@@ -1,5 +1,7 @@
 import unittest
 
+from flask import request
+
 from book import Book
 from library import Library
 
@@ -100,3 +102,21 @@ class TestLibraryFunctionality(unittest.TestCase):
 
         # Assert
         self.assertFalse(result, "Expected edit_book to return True")
+
+    # Json file should be empty.
+    def test_search_books_function(self):
+        # Arrange
+        library = Library()
+        book1 = Book("Harry", "Bahaa", 2001, "Magic")
+        book2 = Book("Potter", "Shibel", 2001, "Fantasy")
+        library.add_book(book1)
+        library.add_book(book2)
+
+        expected_search_list_books = [book1]
+
+        # Act
+        query = "Harry"
+        actual_search_list_books = library.search_books(query)
+
+        # Assert
+        self.assertEqual(expected_search_list_books, actual_search_list_books)

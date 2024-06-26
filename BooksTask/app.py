@@ -18,7 +18,7 @@ class App:
         Setup Flask routes for the application.
         """
         self.app.add_url_rule('/', view_func=self.index)
-        self.app.add_url_rule('/books', view_func=self.add_books, methods=['GET', 'POST'])
+        self.app.add_url_rule('/books', view_func=self.books, methods=['GET', 'POST'])
         self.app.add_url_rule('/edit/<title>', view_func=self.edit_book, methods=['GET', 'POST'])
         self.app.add_url_rule('/delete/<title>', view_func=self.delete_book)
         self.app.add_url_rule('/search', view_func=self.search_books, methods=['GET'])
@@ -33,7 +33,7 @@ class App:
         """
         return render_template('index.html')
 
-    def add_books(self):
+    def books(self):
         """
         Handle GET (list books) and POST (add book) requests for the books page.
 
@@ -52,7 +52,7 @@ class App:
                     flash('All fields are required.', 'error')
                 else:
                     book = Book(title, author, year, genre)
-                    self.library.add_book(book)
+                    self.library.book(book)
                     flash('Book added successfully!', 'success')
                     return redirect(url_for('books'))
 

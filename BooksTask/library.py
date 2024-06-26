@@ -98,3 +98,14 @@ class Library:
                 self.books = [Book(**book_dict) for book_dict in book_dicts]
         except FileNotFoundError:
             self.books = []
+
+    def to_dict(self):
+        list1 = []
+        for book in self.books:
+            list1.append({
+                "title": book.title,
+                "author": book.author,
+                "publication_year": book.publication_year,
+                "genre": book.genre
+            })
+        return list1

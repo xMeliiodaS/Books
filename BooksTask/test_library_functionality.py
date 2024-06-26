@@ -147,9 +147,13 @@ class TestLibraryFunctionality(unittest.TestCase):
         library.book(book1)
         library.book(book2)
 
+        expected_list = [book1]
+
         # Act
+        library.delete_book(book2.title)
 
         # Assert
+        self.assertEqual(expected_list, library.books)
 
     def test_save_library_function(self):
         self.clear_library()

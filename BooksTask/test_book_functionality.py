@@ -13,10 +13,10 @@ class TestBookFunctionality(unittest.TestCase):
         book1.update("Potter", "Shibel", 2002, "Fantasy")
 
         # Assert
-        self.assertEqual("Potter", book1.title)
-        self.assertEqual("Shibel", book1.author)
-        self.assertEqual(2002, book1.publication_year)
-        self.assertEqual("Fantasy", book1.genre)
+        self.assertEqual("Potter", book1.title, "Title was not updated correctly")
+        self.assertEqual("Shibel", book1.author, "Author was not updated correctly")
+        self.assertEqual(2002, book1.publication_year, "Publication year was not updated correctly")
+        self.assertEqual("Fantasy", book1.genre, "Genre was not updated correctly")
 
     def test_update_book_function_not_equal(self):
         # Arrange
@@ -26,33 +26,27 @@ class TestBookFunctionality(unittest.TestCase):
         book1.update("Potter", "Shibel", 2002, "Fantasy")
 
         # Assert
-        self.assertNotEqual("Harry", book1.title)
-        self.assertNotEqual("M7mod", book1.author)
-        self.assertNotEqual(2001, book1.publication_year)
-        self.assertNotEqual("Magic", book1.genre)
+        self.assertNotEqual("Harry", book1.title, "Title should not be the old value")
+        self.assertNotEqual("M7mod", book1.author, "Author should not be the old value")
+        self.assertNotEqual(2001, book1.publication_year, "Publication year should not be the old value")
+        self.assertNotEqual("Magic", book1.genre, "Genre should not be the old value")
 
     def test_init_book_function(self):
-        # Arrange
-        book1 = None
-
         # Act
         book1 = Book("Harry", "M7mod", 2001, "Magic")
 
         # Assert
-        self.assertEqual("Harry", book1.title)
-        self.assertEqual("M7mod", book1.author)
-        self.assertEqual(2001, book1.publication_year)
-        self.assertEqual("Magic", book1.genre)
+        self.assertEqual("Harry", book1.title, "Title was not set correctly")
+        self.assertEqual("M7mod", book1.author, "Author was not set correctly")
+        self.assertEqual(2001, book1.publication_year, "Publication year was not set correctly")
+        self.assertEqual("Magic", book1.genre, "Genre was not set correctly")
 
     def test_init_book_function_not_equal(self):
-        # Arrange
-        book1 = Book(None, None, None, None)
-
         # Act
         book1 = Book("Harry", "M7mod", 2001, "Magic")
 
         # Assert
-        self.assertNotEqual(None, book1.title)
-        self.assertNotEqual(None, book1.author)
-        self.assertNotEqual(None, book1.publication_year)
-        self.assertNotEqual(None, book1.genre)
+        self.assertNotEqual(None, book1.title, "Title should not be None")
+        self.assertNotEqual(None, book1.author, "Author should not be None")
+        self.assertNotEqual(None, book1.publication_year, "Publication year should not be None")
+        self.assertNotEqual(None, book1.genre, "Genre should not be None")

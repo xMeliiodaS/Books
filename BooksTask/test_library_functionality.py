@@ -61,5 +61,23 @@ class TestLibraryFunctionality(unittest.TestCase):
         # Assert
         self.assertEqual(expected_list_books, actual_list_books)
 
-    def test_edit_book(self):
+    def test_edit_book_true(self):
+        # Arrange
+        title = "Harry Potter"
+        new_details = {
+            "title": "Harry Potter",
+            "author": "J.K. Rowling",
+            "publication_year": 1998,
+            "genre": "Fantasy"
+        }
+        book = Book("Harry Potter", "J.K. Rowling", 1998, "Fantasy")
+
+        library = Library()
+        library.add_book(book)
+
+        # Act
+        result = library.edit_book(title, new_details)
+
+        # Assert
+        self.assertTrue(result, "Expected edit_book to return True")
 

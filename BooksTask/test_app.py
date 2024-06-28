@@ -24,13 +24,13 @@ def browser():
         json.dump([], file)
 
 
-# Run before each test
-def setup_function():
-    """
-    Function to run before each test to ensure the library is empty.
-    """
-    with open("library.json", "w") as file:
-        json.dump([], file)
+# # Run before each test
+# def setup_function():
+#     """
+#     Function to run before each test to ensure the library is empty.
+#     """
+#     with open("library.json", "w") as file:
+#         json.dump([], file)
 
 
 def test_add_book(browser):
@@ -73,13 +73,15 @@ def test_edit_book(browser):
 
 def test_delete_book(browser):
     """
-    Test deleting a book from the library.
+    Test deleting a specific book from the library.
     """
     # Add a book to delete
     test_add_book(browser)
 
-    # Delete the book
-    browser.find_element(By.LINK_TEXT, "Delete").click()
+    # Find the book to delete based on its title
+    book_title = "Test Book"
+    delete_link_xpath = f"//tr[contains(., '{book_title}')]/td/a[text()='Delete']"
+    browser.find_element(By.XPATH, delete_link_xpath).click()
     time.sleep(1)  # Wait for 1 second
 
     # Check if the book was deleted successfully

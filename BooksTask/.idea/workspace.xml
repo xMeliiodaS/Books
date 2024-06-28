@@ -130,9 +130,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python tests.Python tests for test_app.test_search_book" />
-        <item itemvalue="Python tests.Python tests for test_app.test_add_book" />
         <item itemvalue="Python tests.Python tests for test_app.test_delete_book" />
         <item itemvalue="Python tests.Python tests for test_app.test_edit_book" />
+        <item itemvalue="Python tests.Python tests for test_app.test_add_book" />
         <item itemvalue="Python.app" />
       </list>
     </recent_temporary>
